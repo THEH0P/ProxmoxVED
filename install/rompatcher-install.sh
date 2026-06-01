@@ -55,13 +55,11 @@ server {
         try_files $uri $uri/ =404;
     }
 
-    # Cache static assets
     location ~* \.(js|css|png|ico|svg|woff2?)$ {
         expires 7d;
         add_header Cache-Control "public, immutable";
     }
 
-    # Allow large ROM file uploads (up to 512MB)
     client_max_body_size 512M;
 
     gzip on;
@@ -71,8 +69,8 @@ EOF
 
 ln -sf /etc/nginx/sites-available/rompatcher /etc/nginx/sites-enabled/rompatcher
 rm -f /etc/nginx/sites-enabled/default
-
-$STD nginx -t
+$STD systemctl enable nginx
+$STD systemctl restart nginx
 msg_ok "Nginx configured"
 
 msg_info "Creating systemd Service"
