@@ -5,6 +5,7 @@
 # Source: https://github.com/marcrobledo/RomPatcher.js
 
 source /dev/stdin <<<"$FUNCTIONS_FILE_PATH"
+APP="RomPatcher"
 color
 verb_ip6
 catch_errors
