@@ -45,7 +45,7 @@ msg_ok "Permissions set"
 msg_info "Configuring Nginx"
 cat >/etc/nginx/sites-available/rompatcher <<'EOF'
 server {
-    listen 8080;
+    listen 80;
     server_name _;
 
     root /opt/rompatcher;
